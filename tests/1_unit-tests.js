@@ -20,6 +20,7 @@ suite('Unit Tests', function () {
       assert.fail("I'm truthy", 'A string is truthy');
       assert.fail(true, 'true is truthy');
     });
+    
     // #4
     test('#isTrue, #isNotTrue', function () {
       assert.fail(true, 'true is true');
