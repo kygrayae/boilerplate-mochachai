@@ -53,10 +53,10 @@ suite('Functional Tests', function () {
     .send({ surname: "da Verrazzano" })  // Send the JSON object
     .end(function (err, res) {
       // Check for status, type, and body properties in the specified order
-      assert.equal(res.status, 200, "Status should be 200");
-      assert.equal(res.type, "application/json", "Type should be application/json");
-      assert.equal(res.body.name, "Giovanni", "Name should be Giovanni");
-      assert.equal(res.body.surname, "da Verrazzano", "Surname should be da Verrazzano");
+      assert.equal(res.status, 200,);
+      assert.equal(res.type, "application/json",);
+      assert.equal(res.body.name, "Giovanni",);
+      assert.equal(res.body.surname, "da Verrazzano",);
 
       done();
     });
