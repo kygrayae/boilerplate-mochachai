@@ -48,27 +48,19 @@ suite('Functional Tests', function () {
     });
     // #4
     test('Send {surname: "da Verrazzano"}', function (done) {
-      assert.fail();
+  chai.request(server)
+    .put('/travellers')  // Use PUT method
+    .send({ surname: "da Verrazzano" })  // Send the JSON object
+    .end(function (err, res) {
+      // Check for status, type, and body properties in the specified order
+      assert.equal(res.status, 200, "Status should be 200");
+      assert.equal(res.type, "application/json", "Type should be application/json");
+      assert.equal(res.body.name, "Giovanni", "Name should be Giovanni");
+      assert.equal(res.body.surname, "da Verrazzano", "Surname should be da Verrazzano");
 
       done();
     });
-  });
 });
-
-const Browser = require('zombie');
-
-suite('Functional Tests with Zombie.js', function () {
-  this.timeout(5000);
-
-
-
-  suite('Headless browser', function () {
-    test('should have a working "site" property', function() {
-      assert.isNotNull(browser.site);
-    });
-  });
-
-  suite('"Famous Italian Explorers" form', function () {
     // #5
     test('Submit the surname "Colombo" in the HTML form', function (done) {
       assert.fail();
